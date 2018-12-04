@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.social-link {
+	font-size: 2em;
+}
+
+.social-link .fa-facebook-f {
+	color: #3B5998;
+}
+
+.social-link .fa-twitter {
+	color: #1DA1F2;
+}
+
+.social-link .fa-youtube {
+	color: #FF0000;
+}
+
+.social-link .fa-envelope {
+	color: #258C0C;
+}
