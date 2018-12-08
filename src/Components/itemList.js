@@ -9,7 +9,7 @@ class ItemList extends Component {
 		return (
 			<div className="card text-center mt-4">
 				<div className="card-header">
-					{this.props.person.short_title} { this.props.person.first_name } { this.props.person.middle_name ? (this.props.person.middle_name + ' ') : '' }{ this.props.person.last_name }
+					{ this.props.person.short_title } { this.props.person.first_name } { this.props.person.middle_name ? (this.props.person.middle_name + ' ') : '' }{ this.props.person.last_name }
 				</div>
 				<div className="card-body">
 					<h5 className="card-title">

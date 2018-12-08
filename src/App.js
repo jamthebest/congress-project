@@ -10,13 +10,29 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {members: []};
+    this.state = {
+      members: [],
+      membersToShow: []
+    };
+  }
+
+  searchMembers(value = '') {
+    let regexValue = '.*' + value.split(' ').join('.*|.*') + '.*';
+    let values = this.state.members.filter(item => {
+      let fullName = item.props.person.first_name + ' ' + (item.props.person.middle_name ? (item.props.person.middle_name + ' ') : '') + item.props.person.last_name;
+      return value.split(' ').reduce((resp, val) => {
+        let match = fullName.match(val) !== null;
+        return resp && match;
+      }, true);
+    });
+    this.setState({
+      membersToShow: values
+    });
   }
 
   componentWillMount() {
     const session = 115 // 115th congressional session
     const chamber = 'senate' // or 'house'
-    this.members = []
 
     // sample API call
     fetch(`https://api.propublica.org/congress/v1/${session}/${chamber}/members.json`, {
@@ -27,15 +43,17 @@ class App extends Component {
     .then((res) => res.json())
     .then((json) => json.results[0].members)
     .then((members) => {
-      console.log(members)
       let array = [];
       members.forEach((member, id) => {
         array.push(<ItemList person={member} key={id} />);
       });
       this.setState({
-        members: array
-      })
-    })
+        members: array.slice(0)
+      });
+      this.setState({
+        membersToShow: array.slice(0)
+      });
+    });
   }
 
   render() {
@@ -44,10 +62,18 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">React Programming Exercise</h1>
+           <div className="form-inline position-absolute" id="search-form"> 
+            <div className="input-group mb-2 mr-sm-2">
+              <div className="input-group-prepend">
+                <i className="input-group-text fas fa-search"></i>
+              </div>
+              <input type="text" className="form-control" id="search-input" placeholder="Search" onKeyUp={(e) => this.searchMembers(e.target.value)}></input>
+            </div>
+          </div>
         </header>
         <section className="container">
           <div className="list-group">
-            {this.state.members}
+            {this.state.membersToShow}
           </div>
         </section>
       </div>

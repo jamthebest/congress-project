@@ -41,3 +41,8 @@
 .social-link .fa-envelope {
 	color: #258C0C;
 }
+
+#search-form {
+	top: 10%;
+    right: 2%;
+}
