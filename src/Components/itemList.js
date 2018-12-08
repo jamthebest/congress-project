@@ -18,13 +18,13 @@ class ItemList extends Component {
 					<h5 className="card-title">
 						State: <button type="button"  href="#" className="btn btn-light">{ this.props.person.state }</button>
 					</h5>
-					<p className="card-text">{this.props.person.title}</p>
+					<p className="card-text">{ this.props.person.title }</p>
 					<div className="btn-group" role="group">
-						<a href={'https://www.facebook.com/' + this.props.person.facebook_account} target="_blank" className="btn social-link"><i className="fab fa-facebook-f"></i></a>
-						<a href={'https://twitter.com/' + this.props.person.twitter_account} target="_blank" className="btn social-link"><i className="fab fa-twitter"></i></a>
-						<a href={'https://www.youtube.com/' + this.props.person.youtube_account} target="_blank" className="btn social-link"><i className="fab fa-youtube"></i></a>
-						<a href={this.props.person.contact_form} target="_blank" className="btn social-link"><i className="fas fa-envelope"></i></a>
-						<a href={this.props.person.url} target="_blank" className="btn social-link"><i className="fas fa-globe"></i></a>
+						<a href={ 'https://www.facebook.com/' + this.props.person.facebook_account } target="_blank" className="btn social-link"><i className="fab fa-facebook-f"></i></a>
+						<a href={ 'https://twitter.com/' + this.props.person.twitter_account } target="_blank" className="btn social-link"><i className="fab fa-twitter"></i></a>
+						<a href={ 'https://www.youtube.com/' + this.props.person.youtube_account } target="_blank" className="btn social-link"><i className="fab fa-youtube"></i></a>
+						<a href={ this.props.person.contact_form } target="_blank" className="btn social-link"><i className="fas fa-envelope"></i></a>
+						<a href={ this.props.person.url } target="_blank" className="btn social-link"><i className="fas fa-globe"></i></a>
 					</div>
 				</div>
 				<div className="card-footer text-muted">
